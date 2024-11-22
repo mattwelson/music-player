@@ -18,31 +18,23 @@ describe("PlayPauseButton", () => {
     expect(await screen.findByTitle("pause")).toBeInTheDocument();
   });
 
-  it(
-    "Calls play function when PLAY is pushed",
-    async () => {
-      const play = vi.fn();
-      const user = userEvent.setup();
-      render(<PlayPauseButton isPlaying={false} pause={vi.fn()} play={play} />);
+  it("Calls play function when PLAY is pushed", async () => {
+    const play = vi.fn();
+    const user = userEvent.setup();
+    render(<PlayPauseButton isPlaying={false} pause={vi.fn()} play={play} />);
 
-      user.click(await screen.findByTitle("play"));
+    await user.click(await screen.findByTitle("play"));
 
-      expect(play).toHaveBeenCalledOnce();
-    },
-    { fails: true }
-  );
+    expect(play).toHaveBeenCalledOnce();
+  });
 
-  it(
-    "Renders pause button while paused",
-    async () => {
-      const pause = vi.fn();
-      const user = userEvent.setup();
-      render(<PlayPauseButton isPlaying={true} pause={pause} play={vi.fn()} />);
+  it("Renders pause button while paused", async () => {
+    const pause = vi.fn();
+    const user = userEvent.setup();
+    render(<PlayPauseButton isPlaying={true} pause={pause} play={vi.fn()} />);
 
-      user.click(await screen.findByTitle("pause"));
+    await user.click(await screen.findByTitle("pause"));
 
-      expect(pause).toHaveBeenCalledOnce();
-    },
-    { fails: true }
-  );
+    expect(pause).toHaveBeenCalledOnce();
+  });
 });
