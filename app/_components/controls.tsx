@@ -12,12 +12,12 @@ export function PlayPauseButton({
 }) {
   if (isPlaying)
     return (
-      <Button onClick={pause} size="rounded">
+      <Button onClick={pause} size="rounded" title="pause">
         <Pause />
       </Button>
     );
   return (
-    <Button onClick={play} size="rounded">
+    <Button onClick={play} size="rounded" title="play">
       <Play />
     </Button>
   );

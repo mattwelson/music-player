@@ -66,7 +66,6 @@ export const playerMachine = createMachine({
               context.audio.currentTime = 0;
             }
 
-            console.log({ currentTrack });
             const audio = new Audio(currentTrack.src);
 
             // add event listeners
